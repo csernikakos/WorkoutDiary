@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WorkoutDiary.Models.Workout>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="workouts" class="table table-bordered table-hover" >
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Workout</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#workouts").DataTable({
+                ajax: {
+                    url: "/api/workouts",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "User.UserName"
+                    },
+                    {
+                        data: "WorkoutType.Name",
+                    },
+                    {
+                        data: "Date"
+                    }
+                ]
+            });
+        });
+    </script>    
+}
