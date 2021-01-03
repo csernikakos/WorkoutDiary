@@ -21,7 +21,7 @@ namespace WorkoutDiary.Controllers.Api
         public IEnumerable<Workout> Get()
         {
             var currentUserId = User.Identity.GetUserId();
-            var workoutsQuery = _context.Workouts.Include(m => m.WorkoutType).Include(w=>w.User).Where(u=>u.User.Id==currentUserId);
+            var workoutsQuery = _context.Workouts.Include(m => m.WorkoutType).Include(w=>w.User).Where(u=>u.User.Id==currentUserId);         
 
             return workoutsQuery.ToList();
 
@@ -51,8 +51,19 @@ namespace WorkoutDiary.Controllers.Api
         }
 
         // DELETE: api/Workouts/5
-        public void Delete(int id)
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
         {
+            var workoutInDb = _context.Workouts.SingleOrDefault(w => w.Id == id);
+            if (workoutInDb == null)
+            {
+                return NotFound();
+            }
+
+            _context.Workouts.Remove(workoutInDb);
+            _context.SaveChanges();
+
+            return Ok();
         }
     }
 }

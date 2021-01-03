@@ -45,13 +45,16 @@ namespace WorkoutDiary.Controllers
         {
 
             var currentUserID = User.Identity.GetUserId();
-            //ApplicationUser currentUser = db.Users.FirstOrDefault(u => u.Id == currentUserID);
             var workoutTypes = db.WorkoutTypes.ToList();
 
             var viewModel = new WorkoutViewModel
             {
                 CurrentUserId = currentUserID,
-                WorkoutTypes = workoutTypes
+                WorkoutTypes = workoutTypes,
+                Workout = new Workout
+                {
+                    Date = DateTime.Now
+                }
             };
             
             return View("WorkoutForm", viewModel);
@@ -77,16 +80,17 @@ namespace WorkoutDiary.Controllers
             {
                 var currentUserID = User.Identity.GetUserId();
                 ApplicationUser currentUser = db.Users.FirstOrDefault(u => u.Id == currentUserID);
-                workout.User = currentUser;                
+                workout.User = currentUser;
+                workout.DateInString = workout.Date.ToShortDateString();
                 db.Workouts.Add(workout);
             }
             else
             {
                 var workoutInDb = db.Workouts.Single(w => w.Id == workout.Id);
-
                 workoutInDb.Date = workout.Date;
                 workoutInDb.User = workout.User;
                 workoutInDb.WorkoutTypeId = workout.WorkoutTypeId;
+                workoutInDb.DateInString = workout.Date.ToShortDateString();
             }
 
             db.SaveChanges();
@@ -138,35 +142,36 @@ namespace WorkoutDiary.Controllers
         //}
 
         // GET: Workouts/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Workout workout = db.Workouts.Find(id);
+            var workout = db.Workouts.SingleOrDefault(w => w.Id == id);
             if (workout == null)
             {
                 return HttpNotFound();
             }
-            return View(workout);
+            var viewModel = new WorkoutViewModel(workout)
+            {
+                CurrentUserId = User.Identity.GetUserId(),
+                WorkoutTypes = db.WorkoutTypes.ToList()
+            };
+            return View("WorkoutForm",viewModel);
         }
 
         // POST: Workouts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Date")] Workout workout)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(workout).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(workout);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id,Date")] Workout workout)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(workout).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(workout);
+        //}
 
         // GET: Workouts/Delete/5
         public ActionResult Delete(int? id)

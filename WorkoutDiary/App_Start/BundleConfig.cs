@@ -20,15 +20,23 @@ namespace WorkoutDiary
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js", 
+                      "~/Scripts/bootstrap.js",
+                      "~/scripts/bootbox.js",
                       "~/Scripts/datatables/jquery.datatables.js",
                       "~/Scripts/datatables/datatables.bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-lumen.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+                   "~/Scripts/jquery-ui-1.12.1.js"));
+            //css  
+            bundles.Add(new StyleBundle("~/Content/cssjqryUi").Include(
+                   "~/Content/themes/base/jquery-ui.css"));
+
         }
     }
 }

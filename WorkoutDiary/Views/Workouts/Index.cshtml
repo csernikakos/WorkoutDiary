@@ -1,48 +1,117 @@
 ﻿@model IEnumerable<WorkoutDiary.Models.Workout>
-
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Index";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table id="workouts" class="table table-bordered table-hover" >
+<div style="margin-left:auto; text-align:center">
+    <h1 class="align-middle">@User.Identity.GetUserName()</h1>
+    <h2>workouts</h2>
+</div>
+
+
+<table id="workouts" class="table table-bordered table-hover table-striped">
     <thead>
         <tr>
-            <th>Username</th>
+            @*<th>Username</th>*@
             <th>Workout</th>
             <th>Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-
     </tbody>
 </table>
-
+<p>
+    @Html.ActionLink("Create New", "Create", "Workouts", null, new { @class = "btn btn-primary" })
+</p>
 @section scripts{
     <script>
+
+        var editor
+
         $(document).ready(function () {
+
             $("#workouts").DataTable({
                 ajax: {
                     url: "/api/workouts",
-                    dataSrc: ""
+                    dataSrc: "",
                 },
                 columns: [
-                    {
-                        data: "User.UserName"
-                    },
+                    //{
+                    //    data: "User.UserName"
+                    //},
                     {
                         data: "WorkoutType.Name",
                     },
                     {
-                        data: "Date"
+                        data: "DateInString"
+                    },
+                    {
+                        data: "Id",
+                        render: function (data, type, workout) {
+                            return "<a href='/workouts/edit/" + data + "'>Edit</a>";
+                        }
+                        //render: function (data) {
+                        //    return "<button class='btn-link'" + data + ">Edit</button>";
+                        //}
+                    },
+                    {
+                        data: "Id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-workout-id=" + data + ">Delete</button>";
+                        }
                     }
                 ]
             });
+
+            $("#workouts").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                if (confirm("Are sure do you want to delete this workout permanently?")) {
+                    $.ajax({
+                        url: "/api/workouts/" + button.attr("data-workout-id"),
+                        method: "DELETE",
+                        success: function () {
+                            button.parents("tr").remove();
+                        }
+                    });
+                }
+
+                //bootbox.confirm("ArUsure??????", function (result) {
+                //    if (result) {
+                //        $.ajax({
+                //            url: "/api/workouts/" + button.attr("data-workout-id"),
+                //            method: "DELETE",
+                //            success: function () {
+                //                table.row(button.parents("tr")).remove().draw()
+                //            }
+                //        });
+                //    }
+                //});
+
+                //bootbox.confirm("Are sure do you want to delete this workout permanently?", function (result) {
+                //    if (result) {
+                //        $.ajax({
+                //            url: "/api/workouts/" + button.attr("data-workout-id"),
+                //            method: "DELETE",
+                //            success: function () {
+                //                table.row(button.parents("tr")).remove().draw()
+                //            }
+                //        });
+                //    }
+                //});
+
+
+
+            });
+
         });
-    </script>    
+
+
+    </script>
 }
