@@ -1,4 +1,5 @@
 ﻿@model WorkoutDiary.ViewModels.WorkoutViewModel
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 @{
     ViewBag.Title = "Create";
@@ -19,13 +20,24 @@
 
 
         <div class="form-group">
+
             @Html.LabelFor(m => m.Workout.WorkoutTypeId)
-            @Html.DropDownListFor(m => m.Workout.WorkoutTypeId, new SelectList(Model.WorkoutTypes, "Id", "Name"), "Select a workout type", new { @class = "form-control" })
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fas fa-running"></i>
+                </div>
+                @Html.DropDownListFor(m => m.Workout.WorkoutTypeId, new SelectList(Model.WorkoutTypes, "Id", "Name"), "Select a workout type", new { @class = "form-control" })
+            </div>
             @Html.ValidationMessageFor(m => m.Workout.WorkoutTypeId)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Workout.Date)
-            @Html.TextBoxFor(m => m.Workout.Date, "{0:yyyy.MM.dd}", new { @class = "form-control", @id="Datefield"})
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fas fa-calendar"></i>
+                </div>
+                @Html.TextBoxFor(m => m.Workout.Date, "{0:yyyy.MM.dd}", new { @class = "form-control", @id = "Datefield", })
+            </div>
             @Html.ValidationMessageFor(m => m.Workout.Date)
         </div>
 
@@ -34,10 +46,15 @@
                 @Html.ActionLink("Back to List", "Index", "Workouts", null, new { @class = "btn btn-default" })
                 <input type="submit" value="Save" class="btn btn-primary col-md-offset-2" />
             </div>
-            <div>
-
-            </div>
         </div>
+        @*<form role="form">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    @Html.DropDownListFor(m => m.Workout.WorkoutTypeId, new SelectList(Model.WorkoutTypes, "Id", "Name"), "Select a workout type", new { @class = "form-control" })
+
+            </form>*@
     </div>
 }
 
