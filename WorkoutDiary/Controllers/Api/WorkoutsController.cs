@@ -24,21 +24,34 @@ namespace WorkoutDiary.Controllers.Api
             var workoutsQuery = _context.Workouts.Include(m => m.WorkoutType).Include(w=>w.User).Where(u=>u.User.Id==currentUserId);         
 
             return workoutsQuery.ToList();
-
-            //return new string[] { "value1", "value2" };
         }
+
+        //GET: 
+
+        public IEnumerable<Workout> GetWorkouts(int id)
+        {
+            var currentUserId = User.Identity.GetUserId();
+            var workoutsQuery = _context.Workouts.Include(m => m.WorkoutType)
+                .Include(w => w.User)
+                .Where(u => u.User.Id == currentUserId)
+                .Where(w => w.WorkoutTypeId == id);
+
+
+            return workoutsQuery.ToList();
+        }
+
 
         // GET: api/Workouts/5
-       
-        public IHttpActionResult Get(int id)
-        {
-            var workout = _context.Workouts.Include(w => w.WorkoutType).Include(u => u.User).SingleOrDefault(c=>c.Id==id);
-            if (workout==null)
-            {
-                return NotFound();
-            }
-            return Ok(workout);
-        }
+
+        //public IHttpActionResult Get(int id)
+        //{
+        //    var workout = _context.Workouts.Include(w => w.WorkoutType).Include(u => u.User).SingleOrDefault(c=>c.Id==id);
+        //    if (workout==null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(workout);
+        //}
 
         // POST: api/Workouts
         public void Post([FromBody]string value)
