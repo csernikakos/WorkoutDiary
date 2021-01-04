@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,8 +21,23 @@ namespace WorkoutDiary.Controllers
         // GET: Workouts
         public ActionResult Index()
         {
-            //return View(db.Workouts.ToList());
+            var currentUserId = User.Identity.GetUserId();
             var workouts = db.Workouts.Include(c => c.WorkoutType).Include(u => u.User);
+            List<DataPoint> dataPoints = new List<DataPoint>();
+
+            var workoutTypes = db.WorkoutTypes;
+            foreach(var workoutType in workoutTypes)
+            {
+                var workoutTypeCount = db.Workouts.Where(w => w.WorkoutTypeId == workoutType.Id && w.User.Id == currentUserId).Count();
+                if (workoutTypeCount!=0)
+                {
+                    var dataPoint = new DataPoint(workoutTypeCount, workoutType.Name);
+                    dataPoints.Add(dataPoint);
+                }                
+            }
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+
             return View(workouts);
         }
 
