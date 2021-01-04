@@ -12,26 +12,26 @@
 
 <div style="margin-left:auto; text-align:center">
     <h1 class="align-middle">@User.Identity.GetUserName()</h1>
-    <h2>workouts</h2>
+    
+</div>
+<h2>All workouts</h2>
+<div style="width:50%">
+    <table id="workouts" class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                @*<th>Username</th>*@
+                <th>Workout</th>
+                <th>Date</th>
+                @*<th>Edit</th>
+                    <th>Delete</th>*@
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 
-
-<table id="workouts" class="table table-bordered table-hover table-striped">
-    <thead>
-        <tr>
-            @*<th>Username</th>*@
-            <th>Workout</th>
-            <th>Date</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <th>Edit / Delete</th>
-            <th>Actions</th>
-
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
 
 @*<table id="gymworkouts" class="table table-bordered table-hover table-striped">
         <thead>
@@ -56,7 +56,7 @@
 
         $(document).ready(function () {
 
-            $("#workouts").DataTable({
+            $("#workouts").DataTable({ 
                 ajax: {
                     url: "/api/workouts",
                     dataSrc: "",
@@ -67,38 +67,35 @@
                     //},
                     {
                         data: "WorkoutType.Name",
+                        width: "55%"
                     },
                     {
                         data: "DateInString"
                     },
-                    {
-                        data: "Id",
-                        render: function (data, type, workout) {
-                            return "<a href='/workouts/edit/" + data + "'>Edit</a>";
-                        }
-                        //render: function (data) {
-                        //    return "<button class='btn-link'" + data + ">Edit</button>";
-                        //}
-                    },
-                    {
-                        data: "Id",
-                        render: function (data) {
-                            return "<button class='btn-link js-delete' data-workout-id=" + data + ">Delete</button>";
-                        }
-                    },
+                    //{
+                    //    data: "Id",
+                    //    render: function (data, type, workout) {
+                    //        return "<a href='/workouts/edit/" + data + "'>Edit</a>";
+                    //    }
+                    //    //render: function (data) {
+                    //    //    return "<button class='btn-link'" + data + ">Edit</button>";
+                    //    //}
+                    //},
+                    //{
+                    //    data: "Id",
+                    //    render: function (data) {
+                    //        return "<button class='btn-link js-delete' data-workout-id=" + data + ">Delete</button>";
+                    //    }
+                    //},
                     {
                         data: "Id",
                         className: "center",
                         // defaultContent: '<a href="" class="editor_edit">Edit</a> / <a href="" class="editor_remove">Delete</a>',
                         render: function (data, type, workout) {
-                            return "<a href='/workouts/edit/" + data + "'>Edit</a>/<button class='btn-link js-delete' data-workout-id=" + data + ">Delete</button>";
-                        }
-                    },
-                    {
-                        data: "Id",
-                        render: function (data, type, JsonResultRow, meta) {
-                            return "<a href=/workouts/edit/" + data + '><i class="fas fa-calendar"></i></a>';
-                        }
+                            return "<a href='/workouts/edit/" + data + "'><i class='far fa-edit'></i></a> <button class='btn-link js-delete' data-workout-id=" + data + '><i class="far fa-trash-alt"></i></button>';
+                        },
+                        width: "10%"
+                        
                     }
                 ]
             });
