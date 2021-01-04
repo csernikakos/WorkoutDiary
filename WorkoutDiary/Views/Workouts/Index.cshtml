@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<WorkoutDiary.Models.Workout>
 @using Microsoft.AspNet.Identity
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.css">
 
 
 @{
@@ -36,7 +37,7 @@
         </p>
     </div>
 
-    <div id="pieChartContainer" style="float:left; position:relative; left: 150px; width: 50%">
+    <div id="pieChartContainer" style="float:left; position:relative; left: 150px; width: 50%" >
         <script type="text/javascript">
             window.onload = function () {
                 CanvasJS.addColorSet("greenShades",
@@ -80,8 +81,9 @@
         };
         </script>
     </div>
-    
+
 </div>
+
 
 @section scripts{
     <script>
@@ -101,7 +103,7 @@
                         data: "WorkoutType.Name",
                         width: "55%",
                         render: function (data, type, workout) {
-                            if (data==='Gym') {
+                            if (data === 'Gym') {
                                 return "<i class='fas fa-dumbbell'></i>&nbsp&nbsp" + data;
                             }
                             if (data === 'Swimming') {
@@ -115,7 +117,7 @@
                             }
                             if (data === 'Bouldering') {
                                 return "<i class='fas fa-hiking'></i>&nbsp&nbsp" + data;
-                            }                        
+                            }
                         },
                     },
                     {
@@ -157,7 +159,7 @@
                         method: "DELETE",
                         success: function () {
                             button.parents("tr").remove();
-                            location.reload(); 
+                            location.reload();
                         }
                     });
                 }

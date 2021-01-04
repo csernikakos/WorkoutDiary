@@ -13,40 +13,44 @@
     @Html.ValidationSummary(true, "Please fix the following errors:")
     @Html.AntiForgeryToken()
 
+    <hr />
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+    <div class="form-horizontal well bs-component" style="width: 31%; margin-right: 15px">
+        <div style="margin-left: 15px">
+            <div class="form-group">
 
-        <div class="form-group">
-
-            @Html.LabelFor(m => m.Workout.WorkoutTypeId)
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fas fa-running"></i>
+                @Html.LabelFor(m => m.Workout.WorkoutTypeId)
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    @Html.DropDownListFor(m => m.Workout.WorkoutTypeId, new SelectList(Model.WorkoutTypes, "Id", "Name"), "Select a workout type", new { @class = "form-control" })
                 </div>
-                @Html.DropDownListFor(m => m.Workout.WorkoutTypeId, new SelectList(Model.WorkoutTypes, "Id", "Name"), "Select a workout type", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Workout.WorkoutTypeId)
             </div>
-            @Html.ValidationMessageFor(m => m.Workout.WorkoutTypeId)
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Workout.Date)
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fas fa-calendar"></i>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Workout.Date)
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    @Html.TextBoxFor(m => m.Workout.Date, "{0:yyyy.MM.dd}", new { @class = "form-control", @id = "Datefield", })
                 </div>
-                @Html.TextBoxFor(m => m.Workout.Date, "{0:yyyy.MM.dd}", new { @class = "form-control", @id = "Datefield", })
+                @Html.ValidationMessageFor(m => m.Workout.Date)
             </div>
-            @Html.ValidationMessageFor(m => m.Workout.Date)
+
+            <br />
+            <div class="form-group">
+                <div>
+                    @Html.ActionLink("Back to List", "Index", "Workouts", null, new { @class = "btn btn-default" })
+                    <input type="submit" value="Save" class="btn btn-primary" style="float: right; margin-right: 11px" />
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-            <div>
-                @Html.ActionLink("Back to List", "Index", "Workouts", null, new { @class = "btn btn-default" })
-                <input type="submit" value="Save" class="btn btn-primary col-md-offset-2" />
-            </div>
-        </div>
         @*<form role="form">
                 <div class="input-group">
                     <div class="input-group-addon">
@@ -56,7 +60,7 @@
 
             </form>*@
     </div>
-    @Html.HiddenFor(w=>w.Workout.Id)
+    @Html.HiddenFor(w => w.Workout.Id)
 }
 
 

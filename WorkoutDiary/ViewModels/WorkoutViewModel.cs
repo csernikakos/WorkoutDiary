@@ -31,7 +31,6 @@ namespace WorkoutDiary.ViewModels
             }
         }
 
-
         //public WorkoutViewModel()
         //{
         //    Id = 0;
