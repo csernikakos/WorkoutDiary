@@ -14,7 +14,6 @@ namespace WorkoutDiary.ViewModels
         public IEnumerable<WorkoutType> WorkoutTypes { get; set; }
 
         public Workout Workout { get; set; }
-
         public string CurrentUserId { get; set; }
 
         public string Title
@@ -33,15 +32,15 @@ namespace WorkoutDiary.ViewModels
         }
 
 
-        public WorkoutViewModel()
-        {
-            Id = 0;
-        }
+        //public WorkoutViewModel()
+        //{
+        //    Id = 0;
+        //}
 
-        public WorkoutViewModel(Workout workout)
-        {
-            Workout = workout;
-        }
+        //public WorkoutViewModel(Workout workout)
+        //{
+        //    Workout = workout;
+        //}
 
     }
 }

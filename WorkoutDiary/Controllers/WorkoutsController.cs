@@ -66,7 +66,6 @@ namespace WorkoutDiary.Controllers
         {
             if (!ModelState.IsValid)
             {
-
                 var viewModel = new WorkoutViewModel
                 {
                     CurrentUserId = User.Identity.GetUserId(),
@@ -149,8 +148,9 @@ namespace WorkoutDiary.Controllers
             {
                 return HttpNotFound();
             }
-            var viewModel = new WorkoutViewModel(workout)
+            var viewModel = new WorkoutViewModel
             {
+                Workout = workout,
                 CurrentUserId = User.Identity.GetUserId(),
                 WorkoutTypes = db.WorkoutTypes.ToList()
             };
