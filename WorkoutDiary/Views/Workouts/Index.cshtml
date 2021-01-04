@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<WorkoutDiary.Models.Workout>
 @using Microsoft.AspNet.Identity
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.css">
 
 
 @{
@@ -15,9 +14,9 @@
     <h1 class="align-middle">@User.Identity.GetUserName()</h1>
 
 </div>
-<h2>All workouts</h2>
-<div>
-    <div style="width:50%; float: left">
+@*<h2>All workouts</h2>*@
+<div class="form-group">
+    <div style="width:50%; float:left">
         <table id="workouts" class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
@@ -36,9 +35,9 @@
             @Html.ActionLink("Create New", "Create", "Workouts", null, new { @class = "btn btn-primary" })
         </p>
     </div>
-
-    <div id="pieChartContainer" style="float:left; position:relative; left: 150px; width: 50%" >
-        <script type="text/javascript">
+    <div style="float:right; width: 45%; height: 470px; margin-top: 39px" class="well bs-component">
+        <div id="pieChartContainer" style="margin-top: 10px">
+            <script type="text/javascript">
             window.onload = function () {
                 CanvasJS.addColorSet("greenShades",
                     [//colorSet Array
@@ -50,12 +49,16 @@
                     ]);
 
             var chart = new CanvasJS.Chart("pieChartContainer", {
-                //title: {
-                //    text: "All workouts"
-                //},
+                title: {
+                    text: "All workouts",
+                    fontFamily: "Source Sans Pro",
+                    margin: 50,
+                    fontWeight: "normal"
+                },
                 addColorSet: "greenShades",
                 animationEnabled: true,
-                animationDuration: 400,
+                animationDuration: 300,
+                backgroundColor: "transparent",
                 //legend: {
                 //    verticalAlign: "center",
                 //    horizontalAlign: "left",
@@ -79,8 +82,9 @@
 
             chart.render();
         };
-        </script>
-    </div>
+            </script>
+        </div>
+    </div>  
 
 </div>
 

@@ -166,6 +166,7 @@ namespace WorkoutDiary.Controllers
             }
             var viewModel = new WorkoutViewModel
             {
+                Id=id,
                 Workout = workout,
                 CurrentUserId = User.Identity.GetUserId(),
                 WorkoutTypes = db.WorkoutTypes.ToList()

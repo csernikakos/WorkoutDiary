@@ -31,15 +31,15 @@ namespace WorkoutDiary.ViewModels
             }
         }
 
-        //public WorkoutViewModel()
-        //{
-        //    Id = 0;
-        //}
+        public WorkoutViewModel()
+        {
+            Id = 0;
+        }
 
-        //public WorkoutViewModel(Workout workout)
-        //{
-        //    Workout = workout;
-        //}
+        public WorkoutViewModel(Workout workout)
+        {
+            Workout = workout;
+        }
 
     }
 }
