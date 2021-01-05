@@ -1,30 +1,26 @@
 ﻿@model IEnumerable<WorkoutDiary.Models.Workout>
 @using Microsoft.AspNet.Identity
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
-
+<link rel="stylesheet" href="~/Content/cal-heatmap.css" />
+<script type="text/javascript" src="~/Scripts/cal-heatmap.min.js"></script>
 @{
     ViewBag.Title = "Index";
-
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<div style="margin-left:auto; text-align:center">
-    <h1 class="align-middle">@User.Identity.GetUserName()</h1>
-
+<div style="margin-left:auto; margin-top:40px; text-align:center">
+    @*<h1 class="align-middle">@User.Identity.GetUserName()</h1>
+    <h2>
+    </h2>*@
 </div>
-@*<h2>All workouts</h2>*@
 <div class="form-group">
     <div style="width:50%; float:left">
         <table id="workouts" class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
-                    @*<th>Username</th>*@
                     <th>Workout</th>
                     <th>Date</th>
-                    @*<th>Edit</th>
-                        <th>Delete</th>*@
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -84,8 +80,159 @@
         };
             </script>
         </div>
-    </div>  
+    </div>
 
+    <div id="cal-heatmap" style="position:absolute;margin-top:630px;float:none">
+
+
+    </div>
+    <script type="text/javascript">
+        var cal = new CalHeatMap();
+
+        var dataArr = [];
+
+        $.get("/api/workouts", function (data) {
+            //alert("Data: " + data);
+            $.each(data, function (a, b) {
+                var arrayData = {};
+
+                var wCount = b.WorkoutTypeId;
+                var wDate = b.Timestamp;
+
+                arrayData.date = wDate;
+                arrayData.value = wCount;
+
+                dataArr.push(arrayData);
+            });
+            cal.init({
+                itemSelector: "#cal-heatmap",
+                data: dataArr,
+                afterLoadData: parser,
+                domain: "month",
+                subDomain: "day",
+                cellSize: 15,
+                subDomainTextFormat: "%d",
+                range: 12,
+                domainGutter: 10,
+                displayLegend: false,
+                legend: [1, 2, 3, 4, 5],
+                tooltip:false
+            });
+        });
+
+        var parser = function (data) {
+            var stats = {};
+            for (var d in data) {
+                stats[data[d].date] = data[d].value;
+            }
+            return stats;
+        };
+
+        /* Parser will output the object
+        {
+            "946702811": 15,
+            "946702812": 25,
+            "946702813": 10
+        }*/
+
+
+        var dt = new Date();
+        var dataJSON = { "1609863467": 1 }
+
+        
+    </script>
+
+    @*<div id="heatmap-demo" style="position:absolute; top: 750px;">
+
+        </div>
+
+        <div>
+            <script type="text/javascript">
+                var dataArr=[];
+                //$.ajax({
+                //    url: "/api/workouts",
+                //    method: "GET",
+                //    success: function (result) {
+                //        $.each(result, function (a, b) {
+                //            var arrayData = {};
+                //            var wCount = b.WorkoutTypeId;
+                //            var wDate = b.DateInString;
+
+                //            arrayData.count = wCount;
+                //            arrayData.date = wDate;
+
+                //            dataArr.push(arrayData);
+                //        });
+                //    }
+                //});
+
+
+                $.get("/api/workouts", function (data) {
+                    //alert("Data: " + data);
+                    $.each(data, function (a, b) {
+                        var arrayData = {};
+
+                        var wCount = b.WorkoutTypeId;
+                        var wDate = b.DateInString;
+
+                        arrayData.count = wCount;
+                        arrayData.date = wDate;
+
+                        dataArr.push(arrayData);
+
+                    });
+                    $.each(dataArr, function (a, b) {
+                        console.log(b)
+                    });
+                });
+
+                $("#heatmap-demo").CalendarHeatmap(dataArr,
+                    {
+                // title of the calendar heatmap
+                title: null,
+
+                        // the number of months to display
+                        months: 12,
+
+                        // last month
+                        lastMonth: moment().month() + 1,
+
+                        // last year
+                        lastYear: moment().year(),
+
+                        // color gradients
+                        coloring: "teal",
+
+                        // custom labels
+                        labels: {
+                    days: false,
+                            months: true,
+                            custom: {
+                        weekDayLabels: null,
+                                monthLabels: null
+                            }
+                    },
+
+                        // custom legend
+                        legend: {
+                    show: false,
+                            align: "right",
+                            minLabel: "Less",
+                            maxLabel: "More"
+                        },
+
+                        // custom tooltips
+                        // requires <a href="https://www.jqueryscript.net/tags.php?/Bootstrap/">Bootstrap</a>
+                        tooltips: {
+                    show: false,
+                            options: {}
+                    }
+                });
+
+
+
+            </script>
+        </div>*@
 </div>
 
 
@@ -93,7 +240,6 @@
     <script>
         var editor
         $(document).ready(function () {
-
             $("#workouts").DataTable({
                 ajax: {
                     url: "/api/workouts",

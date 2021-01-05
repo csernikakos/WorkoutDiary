@@ -273,6 +273,10 @@
     <Compile Include="Migrations\202101021600264_addDateString.designer.cs">
       <DependentUpon>202101021600264_addDateString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101051628374_adTimestamp.cs" />
+    <Compile Include="Migrations\202101051628374_adTimestamp.designer.cs">
+      <DependentUpon>202101051628374_adTimestamp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataPoint.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -433,6 +437,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cal-heatmap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap4.css" />
@@ -590,6 +595,8 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\jquery.CalendarHeatmap.css" />
+    <Content Include="Content\jquery.CalendarHeatmap.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -643,6 +650,7 @@
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\cal-heatmap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -767,6 +775,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.CalendarHeatmap.js" />
+    <Content Include="Scripts\jquery.CalendarHeatmap.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -919,6 +929,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202101021600264_addDateString.resx">
       <DependentUpon>202101021600264_addDateString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101051628374_adTimestamp.resx">
+      <DependentUpon>202101051628374_adTimestamp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -21,6 +21,7 @@ namespace WorkoutDiary.Models
         public DateTime Date { get; set; }
 
         public string DateInString { get; set; }
+        public string Timestamp { get; set; }
 
         public ApplicationUser User { get; set; }
 
@@ -29,6 +30,12 @@ namespace WorkoutDiary.Models
             get
             {
                 return User.UserName;
+            }
+        }
+        public string WorkoutData {
+            get
+            {
+                return "count: "+WorkoutTypeId+", date: "+DateInString;
             }
         }
 

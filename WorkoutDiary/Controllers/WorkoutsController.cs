@@ -96,7 +96,8 @@ namespace WorkoutDiary.Controllers
                 var currentUserID = User.Identity.GetUserId();
                 ApplicationUser currentUser = db.Users.FirstOrDefault(u => u.Id == currentUserID);
                 workout.User = currentUser;
-                workout.DateInString = workout.Date.ToShortDateString();
+                workout.DateInString = workout.Date.ToShortDateString();                
+                workout.Timestamp = ((workout.Date.Subtract(new DateTime(1970, 1, 1))).TotalSeconds).ToString();
                 db.Workouts.Add(workout);
             }
             else
@@ -106,6 +107,7 @@ namespace WorkoutDiary.Controllers
                 workoutInDb.User = workout.User;
                 workoutInDb.WorkoutTypeId = workout.WorkoutTypeId;
                 workoutInDb.DateInString = workout.Date.ToShortDateString();
+                workoutInDb.Timestamp = ((workout.Date.Subtract(new DateTime(1970, 1, 1))).TotalSeconds).ToString();
             }
 
             db.SaveChanges();
