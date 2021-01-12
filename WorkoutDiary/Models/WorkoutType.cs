@@ -10,9 +10,8 @@ namespace WorkoutDiary.Models
     {
         public int Id { get; set; }
 
-        
         [StringLength(255)]
-        [Display(Name = "Workout")]
+        [Display(Name = "Workout Type")]
         public string Name { get; set; }
     }
 }

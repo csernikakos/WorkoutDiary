@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<WorkoutDiary.Models.Workout>
 @using Microsoft.AspNet.Identity
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 <link rel="stylesheet" href="~/Content/cal-heatmap.css" />
 <script type="text/javascript" src="~/Scripts/cal-heatmap.min.js"></script>
+
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,8 +14,8 @@
 
 <div style="margin-left:auto; margin-top:40px; text-align:center">
     @*<h1 class="align-middle">@User.Identity.GetUserName()</h1>
-    <h2>
-    </h2>*@
+        <h2>
+        </h2>*@
 </div>
 <div class="form-group">
     <div style="width:50%; float:left">
@@ -115,8 +118,8 @@
                 range: 12,
                 domainGutter: 10,
                 displayLegend: false,
-                legend: [1, 2, 3, 4, 5],
-                tooltip:false
+                legend: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+                tooltip: false
             });
         });
 
@@ -138,8 +141,18 @@
 
         var dt = new Date();
         var dataJSON = { "1609863467": 1 }
+    </script>
+    <div class="seperate"></div>
+    <div id="test" style="position:fixed ;margin-top:800px;float:none; width: 1600px">
+        <p>test-heatmap</p>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#calendar_yearview_blocks_chart_1').calendar_yearview_blocks({
+                stylize_today: true
+            });
+        }
 
-        
     </script>
 
     @*<div id="heatmap-demo" style="position:absolute; top: 750px;">
@@ -236,110 +249,114 @@
 </div>
 
 
+
 @section scripts{
     <script>
-        var editor
-        $(document).ready(function () {
-            $("#workouts").DataTable({
-                ajax: {
-                    url: "/api/workouts",
-                    dataSrc: "",
-                },
-                columns: [
-                    //{
-                    //    data: "User.UserName"
-                    //},
-                    {
-                        data: "WorkoutType.Name",
-                        width: "55%",
-                        render: function (data, type, workout) {
-                            if (data === 'Gym') {
-                                return "<i class='fas fa-dumbbell'></i>&nbsp&nbsp" + data;
-                            }
-                            if (data === 'Swimming') {
-                                return "<i class='fas fa-swimmer'></i>&nbsp&nbsp" + data;
-                            }
-                            if (data === 'Running') {
-                                return "<i class='fas fa-running'></i>&nbsp&nbsp" + data;
-                            }
-                            if (data === 'Home') {
-                                return "<i class='fas fa-child'></i>&nbsp&nbsp" + data;
-                            }
-                            if (data === 'Bouldering') {
-                                return "<i class='fas fa-hiking'></i>&nbsp&nbsp" + data;
-                            }
-                        },
+                var editor
+            $(document).ready(function () {
+                $("#workouts").DataTable({
+                    ajax: {
+                        url: "/api/workouts",
+                        dataSrc: "",
                     },
-                    {
-                        data: "DateInString"
-                    },
-                    //{
-                    //    data: "Id",
-                    //    render: function (data, type, workout) {
-                    //        return "<a href='/workouts/edit/" + data + "'>Edit</a>";
-                    //    }
-                    //    //render: function (data) {
-                    //    //    return "<button class='btn-link'" + data + ">Edit</button>";
-                    //    //}
-                    //},
-                    //{
-                    //    data: "Id",
-                    //    render: function (data) {
-                    //        return "<button class='btn-link js-delete' data-workout-id=" + data + ">Delete</button>";
-                    //    }
-                    //},
-                    {
-                        data: "Id",
-                        className: "center",
-                        render: function (data, type, workout) {
-                            return "<a href='/workouts/edit/" + data + "'><i class='far fa-edit'></i></a> <button class='btn-link js-delete' data-workout-id=" + data + '><i class="far fa-trash-alt"></i></button>';
+                    columns: [
+                        //{
+                        //    data: "User.UserName"
+                        //},
+                        {
+                            data: "WorkoutType.Name",
+                            width: "55%",
+                            render: function (data, type, workout) {
+                                if (data === 'Gym') {
+                                    return "<i class='fas fa-dumbbell'></i>&nbsp&nbsp" + data;
+                                }
+                                if (data === 'Swimming') {
+                                    return "<i class='fas fa-swimmer'></i>&nbsp&nbsp" + data;
+                                }
+                                if (data === 'Running') {
+                                    return "<i class='fas fa-running'></i>&nbsp&nbsp" + data;
+                                }
+                                if (data === 'Home') {
+                                    return "<i class='fas fa-child'></i>&nbsp&nbsp" + data;
+                                }
+                                if (data === 'Bouldering') {
+                                    return "<i class='fas fa-hiking'></i>&nbsp&nbsp" + data;
+                                }
+                                else {
+                                    return "<i class='fas fa-male'></i>&nbsp&nbsp" + data;
+                                }
+                            },
                         },
-                        width: "5%"
-
-                    }
-                ]
-            });
-
-            $("#workouts").on("click", ".js-delete", function () {
-                var button = $(this);
-
-                if (confirm("Are sure do you want to delete this workout permanently?")) {
-                    $.ajax({
-                        url: "/api/workouts/" + button.attr("data-workout-id"),
-                        method: "DELETE",
-                        success: function () {
-                            button.parents("tr").remove();
-                            location.reload();
+                        {
+                            data: "DateInString"
+                        },
+                        //{
+                        //    data: "Id",
+                        //    render: function (data, type, workout) {
+                        //        return "<a href='/workouts/edit/" + data + "'>Edit</a>";
+                        //    }
+                        //    //render: function (data) {
+                        //    //    return "<button class='btn-link'" + data + ">Edit</button>";
+                        //    //}
+                        //},
+                        //{
+                        //    data: "Id",
+                        //    render: function (data) {
+                        //        return "<button class='btn-link js-delete' data-workout-id=" + data + ">Delete</button>";
+                        //    }
+                        //},
+                        {
+                            data: "Id",
+                            className: "center",
+                            render: function (data, type, workout) {
+                                return "<a href='/workouts/edit/" + data + "'><i class='far fa-edit'></i></a> <button class='btn-link js-delete' data-workout-id=" + data + '><i class="far fa-trash-alt"></i></button>';
+                            },
+                            width: "5%"
                         }
-                    });
-                }
+                    ]
+                });
 
-                //bootbox.confirm("ArUsure??????", function (result) {
-                //    if (result) {
-                //        $.ajax({
-                //            url: "/api/workouts/" + button.attr("data-workout-id"),
-                //            method: "DELETE",
-                //            success: function () {
-                //                table.row(button.parents("tr")).remove().draw()
-                //            }
-                //        });
-                //    }
-                //});
+                $("#workouts").on("click", ".js-delete", function () {
+                    var button = $(this);
 
-                //bootbox.confirm("Are sure do you want to delete this workout permanently?", function (result) {
-                //    if (result) {
-                //        $.ajax({
-                //            url: "/api/workouts/" + button.attr("data-workout-id"),
-                //            method: "DELETE",
-                //            success: function () {
-                //                table.row(button.parents("tr")).remove().draw()
-                //            }
-                //        });
-                //    }
-                //});
+                    if (confirm("Are your sure do you want to delete this workout permanently?")) {
+                        $.ajax({
+                            url: "/api/workouts/" + button.attr("data-workout-id"),
+                            method: "DELETE",
+                            success: function () {
+                                button.parents("tr").remove();
+                                location.reload();
+                                toastr.success("Successfully deleted!");
+                            }
+                        });
+                    }
+
+                    //bootbox.confirm("ArUsure??????", function (result) {
+                    //    if (result) {
+                    //        $.ajax({
+                    //            url: "/api/workouts/" + button.attr("data-workout-id"),
+                    //            method: "DELETE",
+                    //            success: function () {
+                    //                table.row(button.parents("tr")).remove().draw()
+                    //            }
+                    //        });
+                    //    }
+                    //});
+
+                    //bootbox.confirm("Are sure do you want to delete this workout permanently?", function (result) {
+                    //    if (result) {
+                    //        $.ajax({
+                    //            url: "/api/workouts/" + button.attr("data-workout-id"),
+                    //            method: "DELETE",
+                    //            success: function () {
+                    //                table.row(button.parents("tr")).remove().draw()
+                    //            }
+                    //        });
+                    //    }
+                    //});
+                });
+
             });
-
-        });
 
 
     </script>

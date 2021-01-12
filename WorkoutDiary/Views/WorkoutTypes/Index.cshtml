@@ -1,0 +1,95 @@
+﻿@model IEnumerable<WorkoutDiary.Models.WorkoutType>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Workout Types</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+
+    </table>*@
+
+<div class="form-group" style="width:40%">
+    <table id="workoutTypeTable" class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Workout Types</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    </table>
+    <p>
+        @Html.ActionLink("Create New", "Create", "WorkoutTypes", null, new { @class = "btn btn-primary" })
+    </p>
+</div>
+
+@section scripts{
+    <script>
+        var editor;
+        $("#workoutTypeTable").DataTable({
+            ajax: {
+                url: "/api/workouttypes",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "Name"
+                },
+                {
+                    data: "Id",
+                    className: "center",
+                    render: function (data, type, workout) {
+                        return "<a href='/workouttypes/edit/" + data + "'><i class='far fa-edit'></i></a> <button class='btn-link js-delete' data-workout-id=" + data + '><i class="far fa-trash-alt"></i></button>';
+                    },
+                    width: "5%"
+                }
+            ]
+        });
+
+        $("#workoutTypeTable").on("click", ".js-delete", function () {
+            var button = $(this);
+
+            if (confirm("Are you sure do you want to delete this Workout Type?")) {
+                $.ajax({
+                    url: "/api/workouttypes/" + button.attr("data-workout-id"),
+                    method: "DELETE",
+                    success: function () {
+                        button.parents("tr").remove();
+                        toastr.success("Successfully deleted!")
+                        //location.reload();
+                    },
+                    error: function () {
+                        toastr.error("ERROR!")
+                    }
+                })
+            }
+        });
+    </script>
+}

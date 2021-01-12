@@ -14,6 +14,7 @@ using WorkoutDiary.ViewModels;
 
 namespace WorkoutDiary.Controllers
 {
+
     public class WorkoutsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

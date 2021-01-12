@@ -37,5 +37,5 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\System.Runtime.Comp
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Threading.Tasks.Extensions.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.addDateString.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.csproj.GenerateResource.cache
-E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.csprojAssemblyReference.cache
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.adTimestamp.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.csprojAssemblyReference.cache
