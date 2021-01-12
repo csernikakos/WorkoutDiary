@@ -1,6 +1,8 @@
 ﻿@model WorkoutDiary.ViewModels.WorkoutTypeViewModel
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+<link href="~/Content/fontawesome-iconpicker.min.css" rel="stylesheet">
+<script src="~/Scripts/fontawesome-iconpicker.js"></script>
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,6 +18,21 @@
     <div class="form-horizontal well bs-component" style="width: 31%; margin-right: 15px">
         <div style="margin-left: 15px">
             <div class="form-group">
+
+                @Html.LabelFor(m=>m.WorkoutType.IconString)
+                <div class="input-group" >
+                    <button type="button" class="btn btn-default iconpicker-component" style="width:45px;">
+                        <i class="fas fa-running"></i>
+                    </button>
+                    @*<span class="input-group-addon"></span>*@
+                    <button data-selected="graduation-cap" type="button" class="icp iconstring btn btn-default dropdown-toggle iconpicker-component" data-toggle="dropdown">
+                        @*<i class="fa fa-fw"></i>*@
+                        <span class="caret"></span>
+                    </button>
+                    @*<input data-placement="bottomRight" class="form-control icp iconstring" value="fas fa-archive" type="text" />*@
+                    @Html.TextBoxFor(m => m.WorkoutType.IconString, new { @class = "form-control icp iconstring invisible" })
+                </div>
+
                 @Html.LabelFor(m => m.WorkoutType.Name)
                 <div class="input-group">
                     <div class="input-group-addon">
@@ -24,12 +41,19 @@
                     @Html.TextBoxFor(m => m.WorkoutType.Name, new { @class = "form-control" })
                 </div>
             </div>
+            <script type="text/javascript">
+                $('.iconstring').iconpicker({
+                    animation: true,
+                    collision: true
+                });
+            </script>
             <div class="form-group">
                 <div>
                     @Html.ActionLink("Back to List", "Index", "WorkoutTypes", null, new { @class = "btn btn-default" })
                     <input type="submit" value="Save" class="btn btn-primary" style="float: right; margin-right: 11px" />
                 </div>
             </div>
+
         </div>
 
     </div>
@@ -38,4 +62,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }

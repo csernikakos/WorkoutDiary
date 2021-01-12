@@ -11,7 +11,12 @@ namespace WorkoutDiary.Models
         public int Id { get; set; }
 
         [StringLength(255)]
-        [Display(Name = "Workout Type")]
+        [Display(Name = "Workout Type Name")]
         public string Name { get; set; }
+
+        public int WorkoutTypeCounter { get; set; }
+
+        [Display(Name = "Activity Icon")]
+        public string IconString { get; set; }
     }
 }

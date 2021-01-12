@@ -99,11 +99,11 @@
             $.each(data, function (a, b) {
                 var arrayData = {};
 
-                var wCount = b.WorkoutTypeId;
+                var wNumber = b.WorkoutType.WorkoutTypeCounter;
                 var wDate = b.Timestamp;
 
                 arrayData.date = wDate;
-                arrayData.value = wCount;
+                arrayData.value = wNumber;
 
                 dataArr.push(arrayData);
             });
@@ -119,7 +119,8 @@
                 domainGutter: 10,
                 displayLegend: false,
                 legend: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-                tooltip: false
+                tooltip: false,
+                subDomainTitleFormat: "empty"
             });
         });
 
@@ -252,7 +253,7 @@
 
 @section scripts{
     <script>
-                var editor
+           var editor;
             $(document).ready(function () {
                 $("#workouts").DataTable({
                     ajax: {

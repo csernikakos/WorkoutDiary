@@ -74,12 +74,33 @@ namespace WorkoutDiary.Controllers
             //}
             if (workoutType.Id==0)
             {
+
+                // Workout counter for Heatmap colors
+                var workoutTypes = db.WorkoutTypes;
+                int numberOfWorkoutTypes = db.WorkoutTypes.Count();
+                List<int> workoutTypeCounters = new List<int>();
+                foreach (var wt in workoutTypes)
+                {
+                    workoutTypeCounters.Add(wt.WorkoutTypeCounter);
+                }
+                var missingCounters = Enumerable.Range(1, numberOfWorkoutTypes).Except(workoutTypeCounters);
+
+                if (missingCounters.Count()==0)
+                {
+                    workoutType.WorkoutTypeCounter = numberOfWorkoutTypes + 1;
+                }
+                else
+                {
+                    workoutType.WorkoutTypeCounter = missingCounters.First();
+                }
+
                 db.WorkoutTypes.Add(workoutType);
             }
             else
             {
                 var workoutTypeInDb = db.WorkoutTypes.Single(w => w.Id == workoutType.Id);
                 workoutTypeInDb.Name = workoutType.Name;
+                workoutTypeInDb.IconString = workoutType.IconString;
             }
             db.SaveChanges();
 

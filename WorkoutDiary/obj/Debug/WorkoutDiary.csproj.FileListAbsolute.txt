@@ -38,4 +38,8 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Threading.Tasks.Ext
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.addDateString.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.csproj.GenerateResource.cache
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.adTimestamp.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateWorkoutType.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateWorkoutType2.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateWorkoutModel1.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.csprojAssemblyReference.cache
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateWorkoutTpyeModel2.resources

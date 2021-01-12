@@ -23,6 +23,7 @@ namespace WorkoutDiary.Models
         public string DateInString { get; set; }
         public string Timestamp { get; set; }
 
+
         public ApplicationUser User { get; set; }
 
         public string UserTitle
