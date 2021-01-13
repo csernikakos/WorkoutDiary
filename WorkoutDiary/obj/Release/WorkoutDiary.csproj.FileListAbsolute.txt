@@ -1,0 +1,12 @@
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.csprojAssemblyReference.cache
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.addDateString.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.adTimestamp.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutType.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutType2.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutModel1.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutTpyeModel2.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutnewProperties.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateTimeInterval.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutType3.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.csproj.GenerateResource.cache
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.csproj.CoreCompileInputs.cache

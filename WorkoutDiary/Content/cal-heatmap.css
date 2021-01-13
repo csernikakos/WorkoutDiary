@@ -65,65 +65,65 @@ Remove comment to apply this style to date with value equal to 0
 }
 
 .cal-heatmap-container .q1 {
-    background-color: #aa3241;
-    fill: #EC7063
+    background-color: #FFAB91;
+    fill: #FFAB91
 }
 
 .cal-heatmap-container .q2 {
-    background-color: #cedb9c;
-    fill: #F4D03F
+    background-color: #FFE082;
+    fill: #FFE082
 }
 
 .cal-heatmap-container .q3 {
-    background-color: #b5cf6b;
-    fill: #5DADE2
+    background-color: #81D4FA;
+    fill: #81D4FA
 }
 
 .cal-heatmap-container .q4 {
-    background-color: #637939;
-    fill: #52BE80
+    background-color: #A5D6A7;
+    fill: #A5D6A7
 }
 
 .cal-heatmap-container .q5 {
-    background-color: #AF7AC5;
-    fill: #AF7AC5
+    background-color: #B39DDB;
+    fill: #B39DDB
 }
 
 .cal-heatmap-container .q6 {
-    background-color: #ff6a00;
-    fill: #ff6a00
+    background-color: #EF9A9A;
+    fill: #EF9A9A
 }
 
 .cal-heatmap-container .q7 {
-    background-color: #ff006e;
-    fill: #ff006e
+    background-color: #BCAAA4;
+    fill: #BCAAA4
 }
 
 .cal-heatmap-container .q8 {
-    background-color: #4800ff;
-    fill: #4800ff
+    background-color: #80CBC4;
+    fill: #80CBC4
 }
 
 .cal-heatmap-container .q9 {
-    background-color: #755a2f;
-    fill: #755a2f
+    background-color: #CE93D8;
+    fill: #CE93D8
 }
 
 .cal-heatmap-container .q10 {
-    background-color: #AF7AC5;
-    fill: #AF7AC5
+    background-color: #B0BEC5;
+    fill: #B0BEC5
 }
 .cal-heatmap-container .q11 {
-    background-color: #c4a677;
-    fill: #c4a677
+    background-color: #FFF59D;
+    fill: #FFF59D
 }
 .cal-heatmap-container .q12 {
-    background-color: #6fc641;
-    fill: #6fc641
+    background-color: #9FA8DA;
+    fill: #9FA8DA
 }
 .cal-heatmap-container .q13 {
-    background-color: #808080;
-    fill: #808080
+    background-color: #BDBDBD;
+    fill: #BDBDBD
 }
     .cal-heatmap-container rect.highlight {
         stroke: #444;
