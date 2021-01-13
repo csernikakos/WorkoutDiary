@@ -16,7 +16,10 @@ namespace WorkoutDiary.Models
 
         public int WorkoutTypeCounter { get; set; }
 
-        [Display(Name = "Activity Icon")]
+        [Display(Name = "Workout Icon")]
         public string IconString { get; set; }
+
+        public bool hasDistance { get; set; }
+        public bool hasDuration { get; set; }
     }
 }

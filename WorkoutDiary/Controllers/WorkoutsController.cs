@@ -109,6 +109,9 @@ namespace WorkoutDiary.Controllers
                 workoutInDb.WorkoutTypeId = workout.WorkoutTypeId;
                 workoutInDb.DateInString = workout.Date.ToShortDateString();
                 workoutInDb.Timestamp = ((workout.Date.Subtract(new DateTime(1970, 1, 1))).TotalSeconds).ToString();
+                workoutInDb.TimeInterval = workout.TimeInterval;
+                workoutInDb.Distance = workout.Distance;
+                workoutInDb.Description = workout.Description;
             }
 
             db.SaveChanges();

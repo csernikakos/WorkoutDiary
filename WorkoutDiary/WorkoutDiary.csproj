@@ -299,6 +299,18 @@
     <Compile Include="Migrations\202101121645044_updateWorkoutTpyeModel-2.designer.cs">
       <DependentUpon>202101121645044_updateWorkoutTpyeModel-2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101130905405_updateWorkout-newProperties.cs" />
+    <Compile Include="Migrations\202101130905405_updateWorkout-newProperties.designer.cs">
+      <DependentUpon>202101130905405_updateWorkout-newProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101130929135_updateTimeInterval.cs" />
+    <Compile Include="Migrations\202101130929135_updateTimeInterval.designer.cs">
+      <DependentUpon>202101130929135_updateTimeInterval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101130943082_updateWorkoutType-3.cs" />
+    <Compile Include="Migrations\202101130943082_updateWorkoutType-3.designer.cs">
+      <DependentUpon>202101130943082_updateWorkoutType-3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataPoint.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -975,6 +987,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101121645044_updateWorkoutTpyeModel-2.resx">
       <DependentUpon>202101121645044_updateWorkoutTpyeModel-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101130905405_updateWorkout-newProperties.resx">
+      <DependentUpon>202101130905405_updateWorkout-newProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101130929135_updateTimeInterval.resx">
+      <DependentUpon>202101130929135_updateTimeInterval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101130943082_updateWorkoutType-3.resx">
+      <DependentUpon>202101130943082_updateWorkoutType-3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

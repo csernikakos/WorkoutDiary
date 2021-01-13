@@ -23,6 +23,11 @@ namespace WorkoutDiary.Models
         public string DateInString { get; set; }
         public string Timestamp { get; set; }
 
+        public string Description { get; set; }
+
+        [Display(Name = "Duration")]
+        public TimeSpan TimeInterval { get; set; }
+        public double Distance { get; set; }
 
         public ApplicationUser User { get; set; }
 

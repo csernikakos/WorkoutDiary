@@ -42,6 +42,39 @@
                 @Html.ValidationMessageFor(m => m.Workout.Date)
             </div>
 
+            <div class="form-group">
+                @Html.LabelFor(m => m.Workout.TimeInterval)
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    @Html.TextBoxFor(m => m.Workout.TimeInterval,new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Workout.TimeInterval)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Workout.Distance)
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fas fa-ruler-horizontal"></i>
+                    </div>
+                    @Html.TextBoxFor(m => m.Workout.Distance, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Workout.Distance)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Workout.Description)
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    @Html.TextAreaFor(m => m.Workout.Description, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Workout.Description)
+            </div>
+
             <br />
             <div class="form-group">
                 <div>

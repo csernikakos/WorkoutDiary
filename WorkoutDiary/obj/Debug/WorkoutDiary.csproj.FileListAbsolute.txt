@@ -43,3 +43,6 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrati
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateWorkoutModel1.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.csprojAssemblyReference.cache
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateWorkoutTpyeModel2.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateWorkoutnewProperties.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateTimeInterval.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.Migrations.updateWorkoutType3.resources

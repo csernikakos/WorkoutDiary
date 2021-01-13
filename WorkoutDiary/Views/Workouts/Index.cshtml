@@ -22,6 +22,7 @@
         <table id="workouts" class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
+                    <th> </th>
                     <th>Workout</th>
                     <th>Date</th>
                     <th>Actions</th>
@@ -260,33 +261,41 @@
                         url: "/api/workouts",
                         dataSrc: "",
                     },
+                    order:[2,'desc'],
                     columns: [
-                        //{
-                        //    data: "User.UserName"
-                        //},
+                        {
+
+                            orderable: false,
+                            data: "WorkoutType.IconString",
+                            width: "2%",
+                            render: function (data, type, workout) {
+                                return "<i class='"+data+"'></i>"
+                            },
+                        },
                         {
                             data: "WorkoutType.Name",
-                            width: "55%",
-                            render: function (data, type, workout) {
-                                if (data === 'Gym') {
-                                    return "<i class='fas fa-dumbbell'></i>&nbsp&nbsp" + data;
-                                }
-                                if (data === 'Swimming') {
-                                    return "<i class='fas fa-swimmer'></i>&nbsp&nbsp" + data;
-                                }
-                                if (data === 'Running') {
-                                    return "<i class='fas fa-running'></i>&nbsp&nbsp" + data;
-                                }
-                                if (data === 'Home') {
-                                    return "<i class='fas fa-child'></i>&nbsp&nbsp" + data;
-                                }
-                                if (data === 'Bouldering') {
-                                    return "<i class='fas fa-hiking'></i>&nbsp&nbsp" + data;
-                                }
-                                else {
-                                    return "<i class='fas fa-male'></i>&nbsp&nbsp" + data;
-                                }
-                            },
+                            
+                            //width: "55%",
+                            //render: function (data, type, workout) {
+                            //    if (data === 'Gym') {
+                            //        return "<i class='fas fa-dumbbell'></i>&nbsp&nbsp" + data;
+                            //    }
+                            //    if (data === 'Swimming') {
+                            //        return "<i class='fas fa-swimmer'></i>&nbsp&nbsp" + data;
+                            //    }
+                            //    if (data === 'Running') {
+                            //        return "<i class='fas fa-running'></i>&nbsp&nbsp" + data;
+                            //    }
+                            //    if (data === 'Home') {
+                            //        return "<i class='fas fa-child'></i>&nbsp&nbsp" + data;
+                            //    }
+                            //    if (data === 'Bouldering') {
+                            //        return "<i class='fas fa-hiking'></i>&nbsp&nbsp" + data;
+                            //    }
+                            //    else {
+                            //        return "<i class='fas fa-male'></i>&nbsp&nbsp" + data;
+                            //    }
+                            //},
                         },
                         {
                             data: "DateInString"
@@ -312,7 +321,8 @@
                             render: function (data, type, workout) {
                                 return "<a href='/workouts/edit/" + data + "'><i class='far fa-edit'></i></a> <button class='btn-link js-delete' data-workout-id=" + data + '><i class="far fa-trash-alt"></i></button>';
                             },
-                            width: "5%"
+                            width: "12%",
+                            orderable: false
                         }
                     ]
                 });

@@ -19,32 +19,33 @@
         <div style="margin-left: 15px">
             <div class="form-group">
 
-                @Html.LabelFor(m=>m.WorkoutType.IconString)
-                <div class="input-group" >
-                    <button type="button" class="btn btn-default iconpicker-component" style="width:45px;">
-                        <i class="fas fa-running"></i>
+                @Html.LabelFor(m => m.WorkoutType.IconString)
+                <div class="input-group">
+                    <button type="button" class="btn btn-default iconpicker-component" data-selected="fa fa-fw fa-heart" style="width:45px;">
+                        <i class="fa fa-fw fa-heart"></i>
                     </button>
-                    @*<span class="input-group-addon"></span>*@
-                    <button data-selected="graduation-cap" type="button" class="icp iconstring btn btn-default dropdown-toggle iconpicker-component" data-toggle="dropdown">
-                        @*<i class="fa fa-fw"></i>*@
+
+                    <button data-selected="fas fa-male" type="button" class="icp iconstring btn btn-default dropdown-toggle iconpicker-component" data-toggle="dropdown">
                         <span class="caret"></span>
                     </button>
                     @*<input data-placement="bottomRight" class="form-control icp iconstring" value="fas fa-archive" type="text" />*@
+
                     @Html.TextBoxFor(m => m.WorkoutType.IconString, new { @class = "form-control icp iconstring invisible" })
                 </div>
 
                 @Html.LabelFor(m => m.WorkoutType.Name)
                 <div class="input-group">
                     <div class="input-group-addon">
-                        <i class="fas fa-running"></i>
                     </div>
                     @Html.TextBoxFor(m => m.WorkoutType.Name, new { @class = "form-control" })
                 </div>
+
             </div>
             <script type="text/javascript">
                 $('.iconstring').iconpicker({
                     animation: true,
-                    collision: true
+                    collision: true,
+                    defaultValue: "fas fa-male"
                 });
             </script>
             <div class="form-group">
