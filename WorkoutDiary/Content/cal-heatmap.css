@@ -109,6 +109,18 @@ Remove comment to apply this style to date with value equal to 0
     fill: #755a2f
 }
 
+.cal-heatmap-container .q10 {
+    background-color: #AF7AC5;
+    fill: #AF7AC5
+}
+.cal-heatmap-container .q11 {
+    background-color: #c4a677;
+    fill: #c4a677
+}
+.cal-heatmap-container .q12 {
+    background-color: #6fc641;
+    fill: #6fc641
+}
 .cal-heatmap-container .q13 {
     background-color: #808080;
     fill: #808080

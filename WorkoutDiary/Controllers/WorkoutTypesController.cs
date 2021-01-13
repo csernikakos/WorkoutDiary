@@ -101,6 +101,8 @@ namespace WorkoutDiary.Controllers
                 var workoutTypeInDb = db.WorkoutTypes.Single(w => w.Id == workoutType.Id);
                 workoutTypeInDb.Name = workoutType.Name;
                 workoutTypeInDb.IconString = workoutType.IconString;
+                workoutTypeInDb.hasDistance = workoutType.hasDistance;
+                workoutTypeInDb.hasDuration = workoutType.hasDuration;
             }
             db.SaveChanges();
 
