@@ -311,6 +311,10 @@
     <Compile Include="Migrations\202101130943082_updateWorkoutType-3.designer.cs">
       <DependentUpon>202101130943082_updateWorkoutType-3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101131246477_test.cs" />
+    <Compile Include="Migrations\202101131246477_test.designer.cs">
+      <DependentUpon>202101131246477_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataPoint.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -995,6 +999,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101130943082_updateWorkoutType-3.resx">
       <DependentUpon>202101130943082_updateWorkoutType-3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101131246477_test.resx">
+      <DependentUpon>202101131246477_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
