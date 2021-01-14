@@ -1,4 +1,3 @@
-E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.csprojAssemblyReference.cache
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.addDateString.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.adTimestamp.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutType.resources
@@ -8,11 +7,9 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migra
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutnewProperties.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateTimeInterval.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.updateWorkoutType3.resources
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.test.resources
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.csproj.GenerateResource.cache
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.csproj.CoreCompileInputs.cache
-E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.Migrations.test.resources
-E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.dll
-E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.pdb
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\WorkoutDiary.dll.config
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\WorkoutDiary.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\WorkoutDiary.pdb
@@ -35,7 +32,6 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\Microsoft.Managed.C
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\Microsoft.VisualBasic.Core.targets
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\System.Buffers.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\System.Collections.Immutable.dll
-E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\System.Memory.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\System.Numerics.Vectors.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\System.Reflection.Metadata.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
@@ -45,6 +41,8 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\vbc.exe.config
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\vbc.rsp
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\VBCSCompiler.exe
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\roslyn\VBCSCompiler.exe.config
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Memory.dll
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Threading.Tasks.Extensions.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\EntityFramework.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\EntityFramework.SqlServer.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.AspNet.Identity.Core.xml
@@ -56,6 +54,7 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Bcl.AsyncInterfa
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Bcl.HashCode.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Data.SqlClient.pdb
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Data.SqlClient.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.EntityFrameworkCore.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.EntityFrameworkCore.Abstractions.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.EntityFrameworkCore.Relational.xml
@@ -70,6 +69,11 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Extensions.Loggi
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Extensions.Options.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Extensions.Primitives.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Identity.Client.xml
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.IdentityModel.Logging.xml
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.IdentityModel.Protocols.xml
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.IdentityModel.Tokens.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Owin.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Owin.Host.SystemWeb.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Microsoft.Owin.Security.xml
@@ -79,7 +83,7 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Newtonsoft.Json.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Buffers.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Collections.Immutable.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Diagnostics.DiagnosticSource.xml
-E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Memory.xml
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.IdentityModel.Tokens.Jwt.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Net.Http.Formatting.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Numerics.Vectors.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Runtime.CompilerServices.Unsafe.xml
@@ -105,4 +109,6 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\ru\Microsoft.Data.SqlClien
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.csproj.CopyComplete
-E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Threading.Tasks.Extensions.dll
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.dll
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.pdb
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Release\WorkoutDiary.csprojAssemblyReference.cache

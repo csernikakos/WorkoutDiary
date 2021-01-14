@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="WorkoutDiary" />
+  <setParameter name="WorkoutDiaryDB-Web.config Connection String" value="Data Source=.\sqlexpress;Initial Catalog=WorkoutDiaryDB;Integrated Security=True" />
+</parameters>
