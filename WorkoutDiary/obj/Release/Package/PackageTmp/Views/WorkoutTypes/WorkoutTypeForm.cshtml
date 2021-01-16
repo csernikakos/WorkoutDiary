@@ -1,0 +1,81 @@
+﻿@model WorkoutDiary.ViewModels.WorkoutTypeViewModel
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+<link href="~/Content/fontawesome-iconpicker.min.css" rel="stylesheet">
+<script src="~/Scripts/fontawesome-iconpicker.js"></script>
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+
+@using (Html.BeginForm("Save", "WorkoutTypes"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal well bs-component" style="width: 31%; margin-right: 15px">
+        <div style="margin-left: 15px">
+            <div class="form-group">
+
+                @Html.LabelFor(m => m.WorkoutType.IconString)
+                <div class="input-group">
+                    <button type="button" class="btn btn-default iconpicker-component" data-selected="fa fa-fw fa-heart" style="width:45px;">
+                        <i class="fa fa-fw fa-heart"></i>
+                    </button>
+
+                    <button data-selected="fas fa-male" type="button" class="icp iconstring btn btn-default dropdown-toggle iconpicker-component" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    @*<input data-placement="bottomRight" class="form-control icp iconstring" value="fas fa-archive" type="text" />*@
+
+                    @Html.TextBoxFor(m => m.WorkoutType.IconString, new { @class = "form-control icp iconstring invisible" })
+                </div>
+
+                @Html.LabelFor(m => m.WorkoutType.Name)
+                <div class="input-group">
+                    <div class="input-group-addon">
+                    </div>
+                    @Html.TextBoxFor(m => m.WorkoutType.Name, new { @class = "form-control" })
+                </div>
+                <br />
+                Additional properties:
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.WorkoutType.hasDuration) Duration
+                    </label>
+                    <label style="margin-left: 15px">
+                        @Html.CheckBoxFor(m => m.WorkoutType.hasDistance) Distance
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    
+                </div>
+
+            </div>
+            <script type="text/javascript">
+                $('.iconstring').iconpicker({
+                    animation: true,
+                    collision: true,
+                    defaultValue: "fas fa-male"
+                });
+            </script>
+            <div class="form-group">
+                <div>
+                    @Html.ActionLink("Back to List", "Index", "WorkoutTypes", null, new { @class = "btn btn-default" })
+                    <input type="submit" value="Save" class="btn btn-primary" style="float: right; margin-right: 11px" />
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    @Html.HiddenFor(w => w.WorkoutType.Id)
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
