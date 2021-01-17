@@ -10,7 +10,7 @@
 <h2>Workout Types</h2>
 
 
-<div class="form-group" style="width:40%">
+<div class="form-group col-md-5">
     <table id="workoutTypeTable" class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
@@ -28,6 +28,16 @@
 @section scripts{
     <script>
         var editor;
+        var workoutTypeColumn = "";
+
+        if ($(window).width() < 500) {
+            workoutTypeColumn = "71%";
+        }
+        else {
+            workoutTypeColumn = "78%";
+        }
+
+
         $("#workoutTypeTable").DataTable({
             ajax: {
                 url: "/api/workouttypes",
@@ -44,7 +54,9 @@
                     },
                 },
                 {
-                    data: "Name"
+                    data: "Name",
+                    width: workoutTypeColumn
+
                 },
                 {
                     data: "Id",
@@ -52,7 +64,6 @@
                     render: function (data, type, workout) {
                         return "<a href='/workouttypes/edit/" + data + "'><i class='far fa-edit'></i></a> <button class='btn-link js-delete' data-workout-id=" + data + '><i class="far fa-trash-alt"></i></button>';
                     },
-                    width: "15%",
                     orderable: false
                 }
             ]
