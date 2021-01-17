@@ -31,7 +31,6 @@
                 @Html.ValidationMessageFor(m => m.Workout.WorkoutTypeId)
             </div>
             <script type="text/javascript">
-
                 $("#dropdownlist").change(function () {
                     var selected = $(this).val()
                     $.ajax({
@@ -140,7 +139,32 @@
                 yearRange: "-60:+0",
                 firstDay: 1
             });
+            var selected = $("#dropdownlist").val()
+            console.log("pageloaad");
+            console.log(selected);
 
+            $.ajax({
+                url: "/api/workouttypes",
+                dataSrc: "",
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        if (selected == value.Id) {
+                            if (!value.hasDuration) {
+                                $("#durationDiv").hide();
+                            }
+                            if (!value.hasDistance) {
+                                $("#distanceDiv").hide();
+                            }
+                            if (value.hasDuration) {
+                                $("#durationDiv").show();
+                            }
+                            if (value.hasDistance) {
+                                $("#distanceDiv").show();
+                            }
+                        }
+                    });
+                }
+            });
         });
     </script>
 }

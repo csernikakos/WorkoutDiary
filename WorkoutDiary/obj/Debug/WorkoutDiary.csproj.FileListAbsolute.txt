@@ -123,3 +123,4 @@ E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Web.WebPages.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Web.WebPages.Deployment.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\System.Web.WebPages.Razor.xml
 E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\bin\Antlr3.Runtime.pdb
+E:\VisualStudioProjects\WorkoutDiary\WorkoutDiary\obj\Debug\WorkoutDiary.csprojAssemblyReference.cache
