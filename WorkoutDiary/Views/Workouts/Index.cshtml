@@ -36,217 +36,50 @@
                 @Html.ActionLink("Create New", "Create", "Workouts", null, new { @class = "btn btn-primary" })
             </p>
         </div>
+
+
         <div class="well bs-component; col-md-6" style="height: 470px; margin-top: 39px;">
-            <div id="pieChartContainer" style="margin-top: 10px">
-                <script type="text/javascript">
-            window.onload = function () {
-                CanvasJS.addColorSet("greenShades",
-                    [//colorSet Array
-                        "#2F4F4F",
-                        "#008080",
-                        "#2E8B57",
-                        "#3CB371",
-                        "#90EE90"
-                    ]);
-
-            var chart = new CanvasJS.Chart("pieChartContainer", {
-                title: {
-                    text: "All workouts",
-                    fontFamily: "Source Sans Pro",
-                    margin: 50,
-                    fontWeight: "normal"
-                },
-                addColorSet: "greenShades",
-                animationEnabled: true,
-                animationDuration: 300,
-                backgroundColor: "transparent",
-                //legend: {
-                //    verticalAlign: "center",
-                //    horizontalAlign: "left",
-                //    fontSize: 20,
-                //    fontFamily: "Helvetica"
-                //},
-                theme: "light2",
-                data: [
-                    {
-                        type: "pie",
-                        indexLabelFontFamily: "Source Sans Pro",
-                        indexLabelFontSize: 15,
-                        indexLabel: " {label}",
-                        startAngle: -20,
-                        //showInLegend: true,
-                        toolTipContent: "{label}: {y}",
-                        dataPoints: @Html.Raw(ViewBag.DataPoints)
-                    }
-                ]
-            });
-
-            chart.render();
-        };
-                </script>
-            </div>
+            <div id="pieChartContainer" style="margin-top: 10px"></div>
         </div>
 
-        <div id="cal-heatmap" style="float:left">
 
+        <div id="cal-heatmap" style="float:left"></div>
 
-        </div>
-        <script type="text/javascript">
-            var cal = new CalHeatMap();
+        <br />
 
-            var dataArr = [];
-            var dateRange = 0;
-            if ($(window).width() < 600) {
-                dateRange = 4;
-            }
-            else {
-                dateRange = 12;
-            }
+        <div id="statisticsCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#statisticsCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#statisticsCarousel" data-slide-to="1"></li>
+                <li data-target="#statisticsCarousel" data-slide-to="2"></li>
+            </ol>
 
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div id="chartContainer1" class="chart" style="width:100%; height:300px;"></div>
+                </div>
 
-            $.get("/api/workouts", function (data) {
-                //alert("Data: " + data);
-                $.each(data, function (a, b) {
-                    var arrayData = {};
+                <div class="item">
+                    <div id="chartContainer2" class="chart" style="width:100%; height:300px;"></div>
+                </div>
 
-                    var wNumber = b.WorkoutType.WorkoutTypeCounter;
-                    var wDate = b.Timestamp;
-
-                    arrayData.date = wDate;
-                    arrayData.value = wNumber;
-
-                    dataArr.push(arrayData);
-                });
-                cal.init({
-                    itemSelector: "#cal-heatmap",
-                    data: dataArr,
-                    afterLoadData: parser,
-                    domain: "month",
-                    subDomain: "day",
-                    cellSize: 15,
-                    subDomainTextFormat: "%d",
-                    range: dateRange,
-                    domainGutter: 10,
-                    displayLegend: false,
-                    legend: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-                    tooltip: false,
-                    subDomainTitleFormat: "empty"
-                });
-            });
-
-            var parser = function (data) {
-                var stats = {};
-                for (var d in data) {
-                    stats[data[d].date] = data[d].value;
-                }
-                return stats;
-            };            
-
-            //var dt = new Date();
-            //var dataJSON = { "1609863467": 1 }
-        </script>
-
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#calendar_yearview_blocks_chart_1').calendar_yearview_blocks({
-                    stylize_today: true
-                });
-            })
-
-        </script>
-
-        @*<div id="heatmap-demo" style="position:absolute; top: 750px;">
-
+                <div class="item">
+                    <div id="chartContainer3" class="chart" style="width:100%; height:300px;"></div>
+                </div>
             </div>
 
-            <div>
-                <script type="text/javascript">
-                    var dataArr=[];
-                    //$.ajax({
-                    //    url: "/api/workouts",
-                    //    method: "GET",
-                    //    success: function (result) {
-                    //        $.each(result, function (a, b) {
-                    //            var arrayData = {};
-                    //            var wCount = b.WorkoutTypeId;
-                    //            var wDate = b.DateInString;
-
-                    //            arrayData.count = wCount;
-                    //            arrayData.date = wDate;
-
-                    //            dataArr.push(arrayData);
-                    //        });
-                    //    }
-                    //});
-
-
-                    $.get("/api/workouts", function (data) {
-                        //alert("Data: " + data);
-                        $.each(data, function (a, b) {
-                            var arrayData = {};
-
-                            var wCount = b.WorkoutTypeId;
-                            var wDate = b.DateInString;
-
-                            arrayData.count = wCount;
-                            arrayData.date = wDate;
-
-                            dataArr.push(arrayData);
-
-                        });
-                        $.each(dataArr, function (a, b) {
-                            console.log(b)
-                        });
-                    });
-
-                    $("#heatmap-demo").CalendarHeatmap(dataArr,
-                        {
-                    // title of the calendar heatmap
-                    title: null,
-
-                            // the number of months to display
-                            months: 12,
-
-                            // last month
-                            lastMonth: moment().month() + 1,
-
-                            // last year
-                            lastYear: moment().year(),
-
-                            // color gradients
-                            coloring: "teal",
-
-                            // custom labels
-                            labels: {
-                        days: false,
-                                months: true,
-                                custom: {
-                            weekDayLabels: null,
-                                    monthLabels: null
-                                }
-                        },
-
-                            // custom legend
-                            legend: {
-                        show: false,
-                                align: "right",
-                                minLabel: "Less",
-                                maxLabel: "More"
-                            },
-
-                            // custom tooltips
-                            // requires <a href="https://www.jqueryscript.net/tags.php?/Bootstrap/">Bootstrap</a>
-                            tooltips: {
-                        show: false,
-                                options: {}
-                        }
-                    });
-
-
-
-                </script>
-            </div>*@
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#statisticsCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#statisticsCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
 </div>
 
@@ -258,7 +91,6 @@
         $(document).ready(function () {
 
             var workoutColumn;
-
             if ($(window).width() < 500) {
                 workoutColumn = "40%";
             }
@@ -285,46 +117,10 @@
                         data: "WorkoutType.Name",
                         width: workoutColumn
 
-                        //width: "55%",
-                        //render: function (data, type, workout) {
-                        //    if (data === 'Gym') {
-                        //        return "<i class='fas fa-dumbbell'></i>&nbsp&nbsp" + data;
-                        //    }
-                        //    if (data === 'Swimming') {
-                        //        return "<i class='fas fa-swimmer'></i>&nbsp&nbsp" + data;
-                        //    }
-                        //    if (data === 'Running') {
-                        //        return "<i class='fas fa-running'></i>&nbsp&nbsp" + data;
-                        //    }
-                        //    if (data === 'Home') {
-                        //        return "<i class='fas fa-child'></i>&nbsp&nbsp" + data;
-                        //    }
-                        //    if (data === 'Bouldering') {
-                        //        return "<i class='fas fa-hiking'></i>&nbsp&nbsp" + data;
-                        //    }
-                        //    else {
-                        //        return "<i class='fas fa-male'></i>&nbsp&nbsp" + data;
-                        //    }
-                        //},
                     },
                     {
                         data: "DateInString",
                     },
-                    //{
-                    //    data: "Id",
-                    //    render: function (data, type, workout) {
-                    //        return "<a href='/workouts/edit/" + data + "'>Edit</a>";
-                    //    }
-                    //    //render: function (data) {
-                    //    //    return "<button class='btn-link'" + data + ">Edit</button>";
-                    //    //}
-                    //},
-                    //{
-                    //    data: "Id",
-                    //    render: function (data) {
-                    //        return "<button class='btn-link js-delete' data-workout-id=" + data + ">Delete</button>";
-                    //    }
-                    //},
                     {
                         data: "Id",
                         className: "center",
@@ -376,7 +172,208 @@
                 //});
             });
 
+            ////////// HEATMAP /////////////////////////
+
+            var cal = new CalHeatMap();
+            var dataArr = [];
+            var dateRange = 0;
+            if ($(window).width() < 600) {
+                dateRange = 4;
+            }
+            else {
+                dateRange = 12;
+            }
+
+            var runningData = [];
+            var swimmingData = [];
+
+            $.get("/api/workouts", function (data) {
+                //alert("Data: " + data);
+                var inc = 1;
+                $.each(data, function (a, b) {
+                    var arrayData = {};
+
+                    var wNumber = b.WorkoutType.WorkoutTypeCounter;
+                    var wDate = b.Timestamp;
+
+                    arrayData.date = wDate;
+                    arrayData.value = wNumber;
+                    dataArr.push(arrayData);
+
+                    if (b.WorkoutType.Name == "Running") {
+                        runningData.push({
+                            x: new Date(b.DateInString), y: b.Distance
+                        });
+                    }
+
+                    if (b.WorkoutType.Name == "Swimming") {
+                        swimmingData.push({
+                            x: new Date(b.DateInString), y: b.Distance
+                        });
+                    }
+                });
+
+                var chart = new CanvasJS.Chart("pieChartContainer", {
+                    title: {
+                        text: "All workouts",
+                        fontFamily: "Source Sans Pro",
+                        margin: 50,
+                        fontWeight: "normal"
+                    },
+                    addColorSet: "greenShades",
+                    animationEnabled: true,
+                    animationDuration: 300,
+                    backgroundColor: "transparent",
+                    theme: "light2",
+                    data: [
+                        {
+                            type: "pie",
+                            indexLabelFontFamily: "Source Sans Pro",
+                            indexLabelFontSize: 15,
+                            indexLabel: " {label}",
+                            startAngle: -20,
+                            toolTipContent: "{label}: {y}",
+                            dataPoints: @Html.Raw(ViewBag.DataPoints)
+                        }
+                    ]
+                });
+                chart.render();
+
+                var chart1 = new CanvasJS.Chart("chartContainer1", {
+                    title: {
+                        text: "Running Data"
+                    },
+                    axisX: {
+                        title: "Date"
+                    },
+                    axisY: {
+                        includeZero: true,
+                        title: "Distance (km)"
+                    },
+                    data: [{
+                        type: "splineArea",
+                        color: "rgba(62,172,54,.7)",
+                        dataPoints: runningData
+                    }]
+                });
+                chart1.render();
+
+                var chart2 = new CanvasJS.Chart("chartContainer2", {
+                    title: {
+                        text: "Swimming Data"
+                    },
+                    axisX: {
+                        title: "Date"
+                    },
+                    axisY: {
+                        includeZero: true,
+                        title: "Distance (km)"
+                    },
+                    data: [{
+                        type: "splineArea",
+                        color: "rgba(54,167,172,.7)",
+                        dataPoints: swimmingData
+                    }]
+                });
+                chart2.render();
+
+                var chart3 = new CanvasJS.Chart("chartContainer3", {
+                    title: {
+                        text: "All workouts",
+                        fontFamily: "Source Sans Pro",
+                        margin: 50,
+                        fontWeight: "normal"
+                    },
+                    addColorSet: "greenShades",
+                    animationEnabled: true,
+                    animationDuration: 300,
+                    backgroundColor: "transparent",
+                    theme: "light2",
+                    data: [
+                        {
+                            type: "pie",
+                            indexLabelFontFamily: "Source Sans Pro",
+                            indexLabelFontSize: 15,
+                            indexLabel: " {label}",
+                            startAngle: -20,
+                            toolTipContent: "{label}: {y}",
+                            dataPoints: @Html.Raw(ViewBag.DataPoints)
+                        }
+                    ]
+                });
+                chart3.render();
+
+                cal.init({
+                    itemSelector: "#cal-heatmap",
+                    data: dataArr,
+                    afterLoadData: parser,
+                    domain: "month",
+                    subDomain: "day",
+                    cellSize: 15,
+                    subDomainTextFormat: "%d",
+                    range: dateRange,
+                    domainGutter: 10,
+                    displayLegend: false,
+                    legend: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+                    tooltip: false,
+                    subDomainTitleFormat: "empty"
+                });
+
+            });
+
+            var parser = function (data) {
+                var stats = {};
+                for (var d in data) {
+                    stats[data[d].date] = data[d].value;
+                }
+                return stats;
+            };
+
+
+            /////////////////////////////////
+
+            //CanvasJS.addColorSet("greenShades",
+            //[
+            //    "#2F4F4F",
+            //    "#008080",
+            //    "#2E8B57",
+            //    "#3CB371",
+            //    "#90EE90"
+            //]);
+
+
+
+        @*var chart = new CanvasJS.Chart("chartContainer3", {
+                title: {
+                    fontFamily: "Source Sans Pro",
+                    margin: 50,
+                    fontWeight: "normal"
+                },
+                addColorSet: "greenShades",
+                animationEnabled: true,
+                animationDuration: 300,
+                backgroundColor: "transparent",
+                theme: "light2",
+                data: [
+                    {
+                        type: "column",
+                        indexLabelFontFamily: "Source Sans Pro",
+                        indexLabelFontSize: 15,
+                        indexLabel: " {label}",
+                        startAngle: -20,
+                        toolTipContent: "{label}: {y}",
+                        dataPoints: @Html.Raw(ViewBag.DataPoints)
+                    }
+                ]
+            });
+        chart.render();*@
+        //};
+
         });
+
+        //////////////////////////
+
+    //window.onload = function () {
 
 
     </script>
