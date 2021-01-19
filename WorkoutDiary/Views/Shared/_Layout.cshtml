@@ -27,12 +27,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
-                    @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                     <li>@Html.ActionLink("Workout", "Index", "Workouts")</li>
                     @if (User.IsInRole("CanManageWorkoutTypes"))
                     {
                         <li>@Html.ActionLink("Workout Types", "Index", "WorkoutTypes")</li>
-                    }
+                    }                    
+                    <li>@Html.ActionLink("Statistics", "Statistics", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
